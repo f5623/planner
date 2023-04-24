@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Planner from './planner'
+
 function App() {
     const [daysNumber, setDaysNumber] = useState('');
     const [weekStart, setWeekStart] = useState('');
@@ -14,27 +15,29 @@ function App() {
       return <Planner daysNumber={daysNumber} weekStart={weekStart}/>;
     }
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <label>
-          Days Number:
+    <div className="App container mt-2">
+      <p className='mt-2'> A planner for your next days or hours </p>
+      <form className='p-5 gap-3 d-flex' onSubmit={handleSubmit}>
           <input
+          className='form-control'
             type="number"
+            placeholder='Days Number:'
             value={daysNumber}
             onChange={event => setDaysNumber(event.target.value)}
           />
-        </label>
         <br />
-        <label>
-          Week Start:
+    
+          
           <input
-            type="number"
+            className='form-control'
+            type="date"
+            placeholder='Week Start:'
             value={weekStart}
             onChange={event => setWeekStart(event.target.value)}
-          />  Notice : saturday is 0 and Friday is 7.
-        </label>
+          />  
+        
         <br />
-        <input type="submit" value="Submit" />
+        <input className="btn btn-outline-success" type="submit"  value="Submit" />
       </form>
 
     </div>
