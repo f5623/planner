@@ -4,7 +4,7 @@ import Planner from './planner'
 
 function App() {
     const [daysNumber, setDaysNumber] = useState('');
-    const [weekStart, setWeekStart] = useState('');
+    const [startDate, setstartDate] = useState('');
     const [formSubmitted, setFormSubmitted] = useState(false);
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -12,7 +12,7 @@ function App() {
     }
   
     if (formSubmitted) {
-      return <Planner daysNumber={daysNumber} weekStart={weekStart}/>;
+      return <Planner daysNumber={daysNumber} startDate={startDate}/>;
     }
   return (
     <div className="App container mt-2">
@@ -21,7 +21,7 @@ function App() {
           <input
           className='form-control'
             type="number"
-            placeholder='Days Number:'
+            placeholder='enter the number of days you want plan for'
             value={daysNumber}
             onChange={event => setDaysNumber(event.target.value)}
           />
@@ -32,8 +32,8 @@ function App() {
             className='form-control'
             type="date"
             placeholder='Week Start:'
-            value={weekStart}
-            onChange={event => setWeekStart(event.target.value)}
+            value={startDate}
+            onChange={event => setstartDate(event.target.value)}
           />  
         
         <br />
